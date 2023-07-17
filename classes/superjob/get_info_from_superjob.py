@@ -1,5 +1,5 @@
 import requests
-from get_info_from_hh import GetInfo
+from classes.hh.get_info_from_hh import GetInfo
 
 
 class SuperJobAPI(GetInfo):

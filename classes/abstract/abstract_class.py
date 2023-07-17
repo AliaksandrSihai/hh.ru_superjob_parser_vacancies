@@ -5,7 +5,7 @@ class GetInfo(ABC):
     """Абстрактный класс и метода для получения информации через API"""
 
     @abstractmethod
-    def get_vacancies(self, keyword):
+    def get_vacancies(self, keyword):#, per_page):
         pass
 
 
@@ -18,12 +18,15 @@ class JSONSaver(ABC):
     def save_vacancies_to_json(self, data=None, json_name=None):
         pass
 
+    @abstractmethod
     def add_vacancy(self, vacancy):
         pass
 
-    def get_vacancies_by_salary(self, salary:str):
+    @abstractmethod
+    def get_vacancies_by(self, salary:str):
         pass
 
+    @abstractmethod
     def delete_vacancy(self, vacancy):
         pass
 
