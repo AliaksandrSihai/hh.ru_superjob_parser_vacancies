@@ -1,11 +1,12 @@
 import json
 from abc import ABC, abstractmethod
 
+
 class GetInfo(ABC):
     """Абстрактный класс и метода для получения информации через API"""
 
     @abstractmethod
-    def get_vacancies(self, keyword):#, per_page):
+    def get_vacancies(self, keyword):
         pass
 
 
@@ -23,12 +24,13 @@ class JSONSaver(ABC):
         pass
 
     @abstractmethod
-    def get_vacancies_by(self, salary:str):
+    def get_vacancies_by(self, salary: str):
         pass
 
     @abstractmethod
     def delete_vacancy(self, vacancy):
         pass
+
 
 class InputError(Exception):
     def __init__(self):
