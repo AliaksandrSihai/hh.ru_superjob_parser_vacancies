@@ -66,14 +66,14 @@ class Vacancy(HeadHunterAPI, InputError):
             date_str = datetime.strptime(date, '%Y-%m-%dT%H:%M:%S%z')
             publish_time = date_str.strftime('%m-%d-%Y')
             vacancy = {
-                'id вакансии': int(item['id']),
-                'Название вакансии': item['name'],
-                'Дата публикации': publish_time,
-                'Заработная плата': salary_range,
-                'Город': item["area"]["name"],
-                'Требование': item['snippet']['requirement'],
-                'Обязанности': item['snippet']['responsibility'],
-                'https cсылка': item['url']
+                "id вакансии": int(item['id']),
+                "Название вакансии": item['name'],
+                "Дата публикации": publish_time,
+                "Заработная плата": salary_range,
+                "Город": item["area"]["name"],
+                "Требование": item['snippet']['requirement'],
+                "Обязанности": item['snippet']['responsibility'],
+                "https cсылка": item['url']
             }
             sorted_vacancy.append(vacancy)
         return sorted_vacancy
@@ -107,53 +107,35 @@ class Vacancy(HeadHunterAPI, InputError):
         Преобразование объекта Vacancy в словарь
         """
         return {
-            'id вакансии:': self.vacancy_id,
-            'Название вакансии:': self.vacancy_name,
-            'Дата публикации:': self.vacancy_date,
-            'https cсылка:': self.vacancy_url,
-            'Заработная плата:': self.vacancy_salary,
-            'Город:': self.vacancy_city,
-            'Требование:': self.vacancy_requirement,
-            'Обязанности:': self.vacancy_responsibility
+            "id вакансии:": self.vacancy_id,
+            "Название вакансии:": self.vacancy_name,
+            "Дата публикации:": self.vacancy_date,
+            "https cсылка:": self.vacancy_url,
+            "Заработная плата:": self.vacancy_salary,
+            "Город:": self.vacancy_city,
+            "Требование:": self.vacancy_requirement,
+            "Обязанности:": self.vacancy_responsibility
         }
 
     def __le__(self, other):
         """
         Магический метод для проверки заработной платы <=
         """
-        try:
-            salary_self = int(self.vacancy_salary)
-            salary_other = int(other.vacancy_salary)
-            if salary_self <= salary_other:
-                return True
-            else:
-                raise ValueError
-        except ValueError:
-            if self.vacancy_salary == "Не указано":
-                return (f"Вакансия: {other.vacancy_name}\n"
-                        f"Заработная плата: {other.vacancy_salary}\n"
-                        f"Ссылка на вакансию: {self.vacancy_url}\n")
-            elif other.vacancy_salary == "Не указано":
-                return (f"Вакансия: {other.vacancy_name}\n"
-                        f"Заработная плата: {self.vacancy_salary}\n"
-                        f"Ссылка на вакансию: {self.vacancy_url}\n")
+
+        salary_self = int(self.vacancy_salary)
+        salary_other = int(other.vacancy_salary)
+        if salary_self <= salary_other:
+            return True
+        else:
+            raise ValueError
 
     def __ge__(self, other):
         """
         Магический метод для проверки заработной платы >=
         """
-        try:
-            salary_other = int(other.vacancy_salary)
-            if self.vacancy_salary >= salary_other:
-                return True
-            else:
-                raise ValueError
-        except ValueError:
-            if self.vacancy_salary == "Не указано":
-                return (f"Вакансия: {other.vacancy_name}\n"
-                        f"Заработная плата: {other.vacancy_salary}\n"
-                        f"Ссылка на вакансию: {self.vacancy_url}\n")
-            elif other.vacancy_salary == "Не указано":
-                return (f"Вакансия: {other.vacancy_name}\n"
-                        f"Заработная плата: {self.vacancy_salary}\n"
-                        f"Ссылка на вакансию: {self.vacancy_url}\n")
+
+        salary_other = int(other.vacancy_salary)
+        if self.vacancy_salary >= salary_other:
+            return True
+        else:
+            raise ValueError
