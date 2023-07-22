@@ -3,7 +3,8 @@ from datetime import datetime
 
 import requests
 
-from classes.abstract.abstract_class import InputError, GetInfo
+from classes.abstract_class import GetInfo
+from classes.error import InputError
 
 
 class SuperJobAPI(GetInfo):

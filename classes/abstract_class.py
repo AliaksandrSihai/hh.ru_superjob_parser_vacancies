@@ -30,7 +30,7 @@ class JSONSaver(ABC):
 class WorkWithJson(JSONSaver):
     """Класс для работы с json файлом"""
 
-    file_path = '/home/aliaksandr_sigai/lesson_ООП/Course_work_4/vacancy_from.json'
+    file_path = '/vacancy_from.json'
 
     def add_vacancy(self, id_vacancy):
         """
@@ -80,11 +80,3 @@ class WorkWithJson(JSONSaver):
                             salary.append(x["Заработная плата:"])
                 return salary
 
-
-class InputError(Exception):
-    """Пользовательский класс с выводом исключений"""
-    def __init__(self):
-        """
-        Инициализация исключения
-        """
-        self.message = "Ошибка ввода данных"

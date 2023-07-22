@@ -1,7 +1,8 @@
-from classes.abstract.abstract_class import InputError, WorkWithJson
-from classes.hh.get_info_from_hh import Vacancy
-from classes.joint_class.joint_class import VacancyJoint
-from classes.superjob.get_info_from_superjob import VacancySuperJob
+from classes.abstract_class import WorkWithJson
+from classes.clients.get_info_from_hh import Vacancy
+from classes.clients.joint_class import VacancyJoint
+from classes.clients.get_info_from_superjob import VacancySuperJob
+from classes.error import InputError
 
 
 def start_with_user():

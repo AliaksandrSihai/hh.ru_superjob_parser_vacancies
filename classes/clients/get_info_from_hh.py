@@ -1,8 +1,10 @@
 from datetime import datetime
 
-from classes.abstract.abstract_class import GetInfo, InputError
+from classes.abstract_class import GetInfo
 
 import requests
+
+from classes.error import InputError
 
 
 class HeadHunterAPI(GetInfo):

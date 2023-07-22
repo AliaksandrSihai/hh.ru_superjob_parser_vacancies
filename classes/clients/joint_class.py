@@ -1,8 +1,8 @@
 from datetime import datetime
 
-from classes.abstract.abstract_class import InputError
-from classes.hh.get_info_from_hh import Vacancy
-from classes.superjob.get_info_from_superjob import VacancySuperJob
+from classes.clients.get_info_from_hh import Vacancy
+from classes.clients.get_info_from_superjob import VacancySuperJob
+from classes.error import InputError
 
 
 class VacancyJoint(VacancySuperJob,Vacancy):
